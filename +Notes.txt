@@ -1,0 +1,40 @@
+Want
+	UCISch Clock Style
+	Flux Background
+	Shorten Subject and Building Names
+	Make pre-class alarm red
+	Compass-based map rotation
+	Terms and Conditions
+	Add Holidays
+
+Need
+	Add keyboard director to demo.js
+	Add keyboard director to schedule page
+	Add more schedule styles
+	Fix error messages
+	Fix mobile CSS
+	Fix CSS in general
+	Fix Windows scrollbar
+	Add name to timer status
+	Distinguish messages from errors
+	Semanticize messages
+	Redirect messages to redirected page
+
+Finished
+	Make index.php Check Cookies
+	Refresh day and trueday Daily
+	Fix "1 seconds"
+	Fix alarm spacing
+	Initiate reloader();
+	Include ect.png
+	Placeholders for weekends
+	Redirect on form entry
+	Fix class links
+	Split building links
+
+Leancon's Remarks
+	Link to Interactive Map and PDF Map
+	Too Much Empty Space
+	Background Too Formal
+	Background Color Too Somber
+	Make Tabs Stand Out

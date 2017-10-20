@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/ico" href="pngjs/favicon.png">
+<link rel="stylesheet" type="text/css" href="request.css">
+<title>[UCISch] Register/Login</title>
+</head>
+
+<body>
+
+<img id="float" style="position:absolute;top:39px;left:4px;height:60px;width:60px;border:2px solid #00aa00;border-radius:10px;cursor:move;opacity:0.25;" onMouseOver="this.style.borderColor='#00dd00';this.style.opacity=1;" onMouseOut="this.style.borderColor='#00aa00';this.style.opacity=0.75;" src="pngjs/ted.png"/>
+
+<h1>UC Irvine Schedulizer</h1>
+<p>A site that displays your schedule based on the day of the week and highlights your class based on the hour of the day.</p>
+<br>
+
+<form method="post" action="index.php">
+UCInet ID:
+<br>
+<input name="user" id="user" type="text" size="72" placeholder="UCInet ID" autocorrect="off" autocapitalize="off">
+<br>
+<br>
+WebReg Schedule:
+<br>
+<textarea name="schd" id="schd" rows="10" cols="70" onClick="select();" placeholder="
+Example:                                                                
+33246 WRITING   39B SEM  TT  4.0  GR     M W    04:00-05:20   ICS  219  
+40050 CHEM       1A LEC   B  4.0  GR     M W F  09:00-09:50   PSLH 100  
+40060 CHEM       1A DIS B10  0.0  GR        T   01:00-01:50   MSTB 114  
+44510 MATH       2D LEC   B  4.0  GR     M W F  01:00-01:50   DBH  1100 
+44521 MATH       2D DIS  22  0.0  GR      T T   05:00-05:50   SH   174  
+44580 MATH       3A LEC   A  4.0  GR     M W F  08:00-08:50   PCB  1100 
+44583 MATH       3A DIS 12   0.0  GR      T T   08:00-08:50   MSTB 124  
+" autocorrect="off" autocapitalize="off">
+</textarea>
+<br>
+<div style="text-align:right;color:#abcdef;font-size:12px;font-variant:normal;"><a style="cursor:pointer;" onClick="dummy();">How do I use this?</a></div>
+<br>
+<div>
+<input id="send" type="submit" value="Send" onMouseOver="i=1;fire();" onMouseOut="i=0;">
+</div>
+</form>
+
+<!-- Old furnace.js stuff
+<h4 id="grad" style="opacity:0;">CLICK IT</h4>
+<h2 id="ient" style="opacity:0;">DO IT ALREADY</h2>
+-->
+<br>
+
+</body>
+
+<script src="pngjs/furnace.js"></script>
+<script src="pngjs/domdrag.js"></script>
+<script src="pngjs/demo.js"></script>
+<script>
+Drag.init(document.getElementById("float"));
+
+document.getElementsByTagName("form")[0].style.width=document.getElementById("schd").offsetWidth+5+"px";
+
+var red=parseInt(Math.random()*50);
+document.write("<a style=\"opacity:0.5;\" onClick=\"document.body.style.background='url(pngjs/mbr.png)'\">"+red+"</a>"); /*This will be removed later on.*/
+if(red==1){
+	document.body.style.background="url('pngjs/mbr.png')";
+}
+</script>
+</html>

@@ -1,0 +1,113 @@
+*{
+	-webkit-font-smoothing: antialiased;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	color: white;
+	text-align: center;
+	cursor: default;
+}
+
+body{
+	background: radial-gradient(#666,#333);
+	background-size: 100% 4px;
+	margin: 0;
+}
+
+.bg{
+	background: url('pngjs/mbt.png');
+	background-size: 132px 176px;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+h1{
+	background: #333 url('pngjs/mbi.png');
+	background-size: 132px 176px;
+	position: fixed;
+	width: 100%;
+	font-variant: small-caps;
+	border-bottom: 1px solid #666;
+	padding: 5px;
+	margin: 0 0 10px 0;
+	display: none;
+	z-index: 1;
+}
+
+.container{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+
+table{
+	margin: auto;
+}
+
+.schedule{
+	margin-top: 65px;
+	margin-bottom: 40px;
+	height: 425px;
+}
+
+.button{
+	position: fixed;
+	bottom: -5px;
+	width: 100%;
+}
+
+td{
+	background: url('pngjs/mbi.png') fixed;
+	background-size: 132px 176px;
+	border: 1px solid #666;
+	border-radius: 25px;
+	width: 300px;
+	padding: 10px;
+	display: none;
+}
+
+td:hover{
+	border: 1px solid #999;
+}
+
+img{
+	border: 1px solid #666;
+	border-radius: 10px;
+}
+
+.satsun{
+	border: 0;
+}
+
+th{
+	-webkit-user-select: none;
+	background: #333;
+	font-variant: small-caps;
+	border: 1px solid #666;
+	border-bottom: 0;
+	border-radius: 25px 25px 0 0;
+	width: 20%;
+	padding: 5px;
+	cursor: pointer;
+}
+
+th:hover{
+	background: #666;
+	background-size: 132px 176px;
+	border: 1px solid #999;
+	border-bottom: 0;
+    box-shadow: 0 0 2px 2px #666;
+}
+
+input{
+	position: relative;
+	top: -450px;
+	width: 100%;
+	opacity: 0.25;
+}
+
+a{
+	cursor: pointer;
+}

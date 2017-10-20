@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Tcelis [UCISch]</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/ico" href="pngjs/testsun2.png">
+<link rel="stylesheet" type="text/css" href="beta.css">
+</head>
+
+<body>
+<div class="bg"></div>
+
+<div style="position:absolute;top:5px;right:5px;background-color:rgba(255,255,255,0.5);color:white;cursor:pointer;z-index:9999;" onClick="document.cookie='user=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';location.reload();">[Log Out]</div>
+
+<h1 id="Mo">Monday</h1>
+<h1 id="Tu">Tuesday</h1>
+<h1 id="We">Wednesday</h1>
+<h1 id="Th">Thursday</h1>
+<h1 id="Fr">Friday</h1>
+<h1 id="Sa">Sæterndæg</h1>
+<h1 id="Su">Sunnandæg</h1>
+
+<div class="container">
+<!-- Schedule -->
+<table class="schedule">
+<tr>
+<td id="LEC7E">
+Physics 7E Lecture<br>
+9:30 AM - 10:50 AM<br>
+<img src="http://www.classrooms.uci.edu/GAC/mapgrids/EH.png"/><br>
+Engineering Hall 1200
+</td>
+<td id="DIS7E">
+Physics 7E Discussion<br>
+11:00 AM - 11:50 AM<br>
+<img src="http://www.classrooms.uci.edu/GAC/mapgrids/ICF.png"/><br>
+Interim Classroom Facility 101
+</td>
+<td id="DIS1">
+Philosophy 1 Discussion<br>
+12:00 AM - 12:50 AM<br>
+<img src="http://www.classrooms.uci.edu/GAC/mapgrids/HICF.png"/><br>
+Humanities Interim Classroom Facility 100L
+</td>
+<td id="LEC2E">
+Mathematics 2E Lecture<br>
+1:00 PM - 1:50 PM<br>
+<img src="http://www.classrooms.uci.edu/GAC/mapgrids/RH.png"/><br>
+Rowland Hall 104
+</td>
+<td id="LEC1">
+Philosophy 1 Lecture<br>
+2:00 PM - 3:20 PM<br>
+<img src="http://www.classrooms.uci.edu/GAC/mapgrids/BS3.png"/><br>
+Biological Sciences III 1200
+</td>
+<td id="DIS2E">
+Mathematics 2E Discussion<br>
+4:00 PM - 4:50 PM<br>
+<img src="http://www.classrooms.uci.edu/GAC/mapgrids/MSTB.png"/><br>
+Multipurpose Science & Technology Building 124
+</td>
+<td id="LEC31L">
+Electrical Engineering & Computer Science 31L Lecture<br>
+4:00 PM - 5:50 PM<br>
+<img src="http://www.classrooms.uci.edu/GAC/mapgrids/EH.png"/><br>
+Engineering Hall 1200
+</td>
+<td id="LAB31L">
+Electrical Engineering & Computer Science 31L Laboratory<br>
+6:00 PM - 8:50 PM<br>
+<img src="http://www.classrooms.uci.edu/GAC/mapgrids/PCB.png"/><br>
+Parkview Classroom Building 1300
+</td>
+<td id="SAT">
+It's Saturday!<br><br>
+<img class="satsun" id="sat" src="http://www.brainlesstales.com/images/2011/Nov/saturnday.jpg" height="250px"/><br><br>
+Get outta here! :D
+</td>
+<td id="SUN">
+It's Sunday!<br><br>
+<img class="satsun" id="sun" src="http://www.macarisrestaurant.co.uk/files/chocolate-sundae.png" height="250px"/><br><br>
+Go eat a sundae! :D
+</td>
+</tr>
+</table>
+</div>
+
+<table class="button">
+<tr>
+<th onClick="reset();day=1;get();">Monday</th>
+<th onClick="reset();day=2;get();">Tuesday</th>
+<th onClick="reset();day=3;get();">Wednesday</th>
+<th onClick="reset();day=4;get();">Thursday</th>
+<th onClick="reset();day=5;get();">Friday</th>
+<tr>
+</table>
+
+<!-- Script -->
+<script type="text/javascript">
+var day=new Date().getDay();
+var trueday=new Date().getDay();
+var LEC7E=document.getElementById("LEC7E");
+var DIS7E=document.getElementById("DIS7E");
+var DIS1=document.getElementById("DIS1");
+var LEC2E=document.getElementById("LEC2E");
+var LEC1=document.getElementById("LEC1");
+var DIS2E=document.getElementById("DIS2E");
+var LEC31L=document.getElementById("LEC31L");
+var LAB31L=document.getElementById("LAB31L");
+var rgba=["rgba(0,0,0,0)","rgba(0,100,200,","rgba(110,100,90,"];
+
+function reloader(){
+requestAnimationFrame(reloader);
+if(trueday!=new Date().getDay()){
+reset();
+day=new Date().getDay();
+trueday=new Date().getDay();
+get();
+}
+}
+
+function clr(o){
+if(day==trueday){
+return rgba[1]+o+")";
+}
+else{
+return rgba[2]+o+")";
+}
+}
+
+function lock(n){
+if(n==1){
+document.title=n+" minute until class.";
+}
+else{
+document.title=n+" minutes until class.";
+}
+}
+
+function alarm(sbj,key){
+if(trueday==1){
+switch(sbj){
+case "LEC2E":lock(key);break;
+default:break;
+}
+}
+else if(trueday==2){
+switch(sbj){
+case "LEC7E":lock(key);break;
+case "LEC1":lock(key);break;
+case "DIS2E":lock(key);break;
+case "LAB31L":lock(key);break;
+default:break;
+}
+}
+else if(trueday==3){
+switch(sbj){
+case "LEC2E":lock(key);break;
+case "LEC31L":lock(key);break;
+default:break;
+}
+}
+else if(trueday==4){
+switch(sbj){
+case "LEC7E":lock(key);break;
+case "DIS1":lock(key);break;
+case "LEC1":lock(key);break;
+case "DIS2E":lock(key);break;
+default:break;
+}
+}
+else if(trueday==5){
+switch(sbj){
+case "DIS7E":lock(key);break;
+case "LEC2E":lock(key);break;
+default:break;
+}
+}
+}
+
+function dye(){
+var hr=new Date().getHours();
+var min=new Date().getMinutes();
+var time=100*hr+min;
+
+LEC7E.style.backgroundColor=rgba[0];
+DIS7E.style.backgroundColor=rgba[0];
+DIS1.style.backgroundColor=rgba[0];
+LEC2E.style.backgroundColor=rgba[0];
+LEC1.style.backgroundColor=rgba[0];
+DIS2E.style.backgroundColor=rgba[0];
+LEC31L.style.backgroundColor=rgba[0];
+LAB31L.style.backgroundColor=rgba[0];
+
+document.title="Tcelis [UCISch]";
+var gradient=min/60;
+
+if(time>=830 && time<930){
+gradient=hr-8+min/60-0.5;
+LEC7E.style.backgroundColor=clr(gradient);
+alarm("LEC7E",Math.round((1-gradient)*60));
+}
+else if(time>=930 && time<1050){
+LEC7E.style.backgroundColor=clr(1);
+}
+if(time>=1000 && time<1100){
+DIS7E.style.backgroundColor=clr(gradient);
+alarm("DIS7E",Math.round((1-gradient)*60));
+}
+else if(time>=1100 && time<1150){
+DIS7E.style.backgroundColor=clr(1);
+}
+if(time>=1100 && time<1200){
+DIS1.style.backgroundColor=clr(gradient);
+alarm("DIS1",Math.round((1-gradient)*60));
+}
+else if(time>=1200 && time<1250){
+DIS1.style.backgroundColor=clr(1);
+}
+if(time>=1200 && time<1300){
+LEC2E.style.backgroundColor=clr(gradient);
+alarm("LEC2E",Math.round((1-gradient)*60));
+}
+else if(time>=1300 && time<1350){
+LEC2E.style.backgroundColor=clr(1);
+}
+if(time>=1300 && time<1400){
+LEC1.style.backgroundColor=clr(gradient);
+alarm("LEC1",Math.round((1-gradient)*60));
+}
+else if(time>=1400 && time<1520){
+LEC1.style.backgroundColor=clr(1);
+}
+if(time>=1500 && time<1600){
+DIS2E.style.backgroundColor=clr(gradient);
+alarm("DIS2E",Math.round((1-gradient)*60));
+}
+else if(time>=1600 && time<1650){
+DIS2E.style.backgroundColor=clr(1);
+}
+if(time>=1500 && time<1600){
+LEC31L.style.backgroundColor=clr(gradient);
+alarm("LEC31L",Math.round((1-gradient)*60));
+}
+else if(time>=1600 && time<1750){
+LEC31L.style.backgroundColor=clr(1);
+}
+if(time>=1700 && time<1800){
+LAB31L.style.backgroundColor=clr(gradient);
+alarm("LAB31L",Math.round((1-gradient)*60));
+}
+else if(time>=1800 && time<2050){
+LAB31L.style.backgroundColor=clr(1);
+}
+setTimeout("dye()",10000);
+}
+
+function get(){
+if(day==1){
+document.getElementById("Mo").style.display="block";
+LEC2E.style.display="table-cell";
+}
+else if(day==2){
+document.getElementById("Tu").style.display="block";
+LEC7E.style.display="table-cell";
+LEC1.style.display="table-cell";
+DIS2E.style.display="table-cell";
+LAB31L.style.display="table-cell";
+}
+else if(day==3){
+document.getElementById("We").style.display="block";
+LEC2E.style.display="table-cell";
+LEC31L.style.display="table-cell";
+}
+else if(day==4){
+document.getElementById("Th").style.display="block";
+LEC7E.style.display="table-cell";
+DIS1.style.display="table-cell";
+LEC1.style.display="table-cell";
+DIS2E.style.display="table-cell";
+}
+else if(day==5){
+document.getElementById("Fr").style.display="block";
+DIS7E.style.display="table-cell";
+LEC2E.style.display="table-cell";
+}
+else if(day==6){
+document.getElementById("Sa").style.display="block";
+document.getElementById("SAT").style.display="table-cell";
+}
+else{
+document.getElementById("Su").style.display="block";
+document.getElementById("SUN").style.display="table-cell";
+}
+dye();
+}
+
+function reset(){
+for(i=0;i<document.getElementsByTagName("h1").length;i++){
+document.getElementsByTagName("h1")[i].style.display="none";
+}
+for(i=0;i<document.getElementsByTagName("td").length;i++){
+document.getElementsByTagName("td")[i].style.display="none";
+}
+}
+
+get();
+//reloader();
+
+/* Resizer, Failed Attempt
+z=100;
+function resize(){
+	requestAnimationFrame(resize);
+	h=421*z/100;
+	w=328*z/100;
+	if(innerWidth>=innerHeight){
+		if(h>innerHeight-z){
+			z--;
+		}
+		else{
+			if(z<100 && h<innerHeight-3*z/2){
+				z++;
+			}
+		}
+	}
+	else{
+		if(w>innerWidth-z/10 && innerHeight>innerWidth){
+			z--;
+		}
+		else{
+			if(z<100 && w<innerWidth-z/5){
+				z++;
+			}
+		}
+	}
+	document.getElementsByTagName("html")[0].style.zoom=z+"%";
+}
+resize();
+*/
+</script>
+
+<!--
+<form onInput="document.getElementsByClassName('bg')[0].style.opacity=parseInt(grade.value)/100;" style="position:absolute;top:525px">
+<input type="range" id="grade" value="50">
+</form>
+-->
+
+</body>
+</html>
+<!--
+//echo "if(time==$rtime[$i][0] || time==$rtime[$i][0]-100){\n";
+//echo "location.replace(location.origin+location.pathname+\"#$type[$i]$class[$i]\");\n";
+//echo "}\n";
+
+/* Needed */
+Card Focus: Pound Redirection
+Aesthetics: Shorten ChFunctions
+--><script type="text/undefined">
+<!-- Hosting24 Analytics Code -->
+<script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
+<!-- End Of Analytics Code -->

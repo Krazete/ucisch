@@ -1,0 +1,3 @@
+1. Upload all files within this folder.
+2. Make a database.
+3. Change $db in sql.php to match the new database.
